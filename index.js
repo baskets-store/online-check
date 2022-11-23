@@ -12,7 +12,7 @@ async function getHiddenProducts() {
     for (let i = 1; i < pages[0] + 1; i++) {
         await fetch(`https://baskets.webshopapp.com/admin/products.json?page=${i}.json`).then(data => data.json()).then(data => products.push(data.products));
 
-    }
+    };
 
 products.forEach(setProducts =>
     setProducts.forEach(product => {
@@ -23,22 +23,15 @@ products.forEach(setProducts =>
             })
         }
     })
-)
+);
 
 await objectExporter({
     exportable: exportData,
     type: 'csv',
     fileName: 'online-check',
     headers: ["Name", "URL"],
-  })
+  });
 
 
 }
 getHiddenProducts();
-
-
-// async function getHiddenProducts () {
-
-// }
-
-// getHiddenProducts();
