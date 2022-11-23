@@ -19,9 +19,7 @@ products.forEach(setProducts =>
         if (product.visibility == "hidden") {
             exportData.push({
                 name: product.en.fulltitle,
-                // brand: product.brand.title,
                 url: `https://baskets.webshopapp.com/admin/products/${product.id}`
-
             })
         }
     })
@@ -30,7 +28,7 @@ products.forEach(setProducts =>
 await objectExporter({
     exportable: exportData,
     type: 'csv',
-    fileName: 'export',
+    fileName: 'online-check',
     headers: ["Name", "URL"],
   })
 
